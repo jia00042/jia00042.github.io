@@ -1,8 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
+/* CSS Reset for consistent cross-browser rendering */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -23,7 +19,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+/* Setting HTML5 elements to display block for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -47,5 +43,177 @@ table {
 	border-spacing: 0;
 }
 
-/* ======= My CSS ======= */
+/* Custom CSS styles */
 
+/* Body background color */
+body {
+    background-color: #aad4cf;
+}
+
+/* Container to set page width and center it */
+.container {
+    max-width: 1200px; /* Max container width */
+    margin: 0 auto 20px auto; /* Center container horizontally */
+    background-color: #d4e9e7;
+    padding-bottom: 30px; /* Bottom padding for container */
+}
+
+/* Header section */
+header {
+    position: relative;
+    text-align: center; /* Center text in header */
+    padding: 0 0;
+}
+
+/* Main page title style */
+header h1 {
+    position: absolute;
+    top: 65%; /* Set title position to 65% from the top */
+    left: 50%; /* Center title horizontally */
+    transform: translate(-50%,-50%); /* Adjust position based on size */
+    text-transform: none; /* Do not transform text */
+}
+
+/* Full-width background image in header */
+.bg-image {
+    width: 100%; /* Image takes full width of container */
+}
+
+/* Default margin for headings */
+h1, h2, h3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Specific styles for main title */
+h1 {
+	margin: 0;
+    padding: 10px 0; /* Padding for top and bottom of the title */
+	color: white;
+	font-size: 3rem; /* Font size using rem unit */
+}	
+
+/* Navigation links container */
+.nav-links {
+    display: flex;
+    justify-content: space-between; /* Evenly distribute links */
+    align-items: center;
+    margin-top: 10px;
+    width: 100%; /* Full width of container */
+    padding: 0 20px; /* Padding for internal spacing */
+    box-sizing: border-box; /* Include padding within width */
+}
+
+/* Navigation link styles */
+.nav-links a {
+    font-size: 20px; /* Font size for navigation links */
+	text-decoration: none; /* Remove underline */
+    color: black; /* Link text color */
+    flex: 1; /* Allow links to flex evenly */
+    text-align: center; /* Center link text */
+}
+
+/* Separator between navigation links */
+.separator {
+    color: black;
+    padding: 0 10px;
+	width: 2px; /* Separator width */
+	height: 30px; /* Separator height */
+}
+
+/* Styles for h2 elements */
+h2 {
+	font-size: 30px;
+	padding-left: 20px; /* Left padding for spacing */
+	margin-bottom: 20px;
+}
+
+/* Container for the h2 and image */
+.h2-image-container {
+    overflow: hidden; /* Clear floats within this container */
+}
+
+/* Floating image style */
+.float-image {
+    width: 200px; /* Set image width */
+    height: auto; /* Maintain aspect ratio */
+    float: left; /* Float image to the left */
+    margin: 0 15px 10px 0; /* Margin around the floating image */
+	padding-left: 20px; /* Additional padding on the left */
+}
+
+/* Styles for article content */
+.article {
+	padding-left: 20px;
+	padding-right: 20px;
+	line-height: 1.3; /* Set line height for better readability */
+}
+
+/* Styles for h3 elements */
+h3 {
+    margin-top: 15px;
+	font-size: 24px;
+	padding-left: 20px; /* Left padding for spacing */
+}
+
+/* Unordered list styles */
+ul {
+    list-style-type: disc; /* Display list items with a disc */
+    padding-left: 30px; /* Left padding for list */
+	font-size: 14px; /* Smaller font size for list items */
+    line-height: 1.2; /* Compact line height */
+}
+
+/* List item styles */
+li {
+    margin-bottom: 0px; /* No extra spacing between list items */
+}
+
+/* Styles for the contact form */
+.contact-form {
+    padding: 30px;
+}
+
+/* Set line height for labels and paragraphs inside the form */
+.contact-form label,
+.contact-form p {
+    line-height: 2;
+}
+
+/* Spacing between form fields */
+.contact-form div {
+    margin-bottom: 20px;
+}
+
+/* Styles for text input fields */
+.contact-form .fname input,
+.contact-form .email input {
+    width: 98%;
+    padding: 10px;
+	height: 40px; /* Set a more appropriate height */
+}
+
+/* Styles for the textarea in the contact form */
+.contact-form .message textarea {
+    width: 98%;
+    padding: 10px;
+    height: 100px;
+    resize: none; /* Prevent resizing of the textarea */
+}
+
+/* Contact form container styling */
+.contact-form {
+    border: 2px solid black; /* Black border around the form */
+    padding: 20px; /* Padding inside the form */
+    max-width: 1120px; /* Max width for the form */
+    margin: 0 auto; /* Center the form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
+}
+
+/* Footer styles */
+footer {
+    margin-top: 30px;
+    text-align: right; /* Align text to the right */
+    padding-right: 30px; /* Add padding to the right side */
+    font-size: 14px; /* Font size for footer text */
+}
