@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jia00042 - Final Project</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="images/logo.png" alt="Company Logo">
+        </div>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <form action="#" method="get">
+                <input type="text" name="search" placeholder="Search..." aria-label="Search">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <!-- Welcome Section -->
+        <div class="welcome" style="background-image: url('images/main-banner.jpg'); background-size: cover; background-position: center; text-align: center; padding: 50px; color: white;">
+            <h1>Welcome to Three Star Media</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque efficitur, lacus in hendrerit pharetra, eros nisi efficitur urna, non placerat libero nulla eget justo. 
+            </p>
+            <div class="button-container">
+                <button>Connect with us</button>
+            </div>
+        </div>
+        <!-- About Us Section -->
+        <div class="about-us">
+            <img src="images/about-us.jpg" alt="About Us Image">
+            <h2>About Us</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel risus id libero finibus commodo. Curabitur sit amet mi eget orci fermentum tincidunt. 
+                Aenean volutpat, lacus a ullamcorper cursus, elit libero sollicitudin dolor, vitae aliquam augue tortor at tortor. 
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Our Services Section -->
+        <section id="services">
+            <h3>Our Services</h3>
+            <!-- Service Items -->
+            <div class="service-item">
+                <img src="images/digital.jpg" alt="Digital Transformation">
+                <h4>Digital Transformation</h4>
+                <button>Digital Plans</button>
+            </div>
+            <div class="service-item">
+                <img src="images/marketing.jpg" alt="Marketing">
+                <h4>Marketing</h4>
+                <button>Marketing Plans</button>
+            </div>
+            <div class="service-item">
+                <img src="images/video.jpg" alt="Video Production">
+                <h4>Video Production</h4>
+                <button>Video Production Plans</button>
+            </div>
+            <div class="service-item">
+                <img src="images/web.jpg" alt="Web Development">
+                <h4>Web Development</h4>
+                <button>Web Development Plans</button>
+            </div>
+            <div class="service-item">
+                <img src="images/print.jpg" alt="Print">
+                <h4>Print</h4>
+                <button>Print Plans</button>
+            </div>
+        </section>
+        <!-- Our Vision Section -->
+        <section id="vision" style="background-image: url('images/vision.jpg'); background-size: cover; background-position: center; text-align: center; padding: 50px; color: white;">
+            <h4>Our Vision</h4>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula urna at enim finibus, non venenatis orci scelerisque. 
+                Nullam tincidunt lectus at sapien gravida, id gravida justo interdum. In hac habitasse platea dictumst.
+            </p>
+            <div class="button-container">
+                <button>Learn More</button>
+            </div>
+        </section>
+        <!-- Our Team Section -->
+        <section id="team">
+            <h3>Our Team</h3>
+            <!-- Team Member 1 -->
+            <div class="team-member">
+                <img src="images/john.jpg" alt="John Doe">
+                <h4>John Doe</h4>
+                <h5>CEO and Co-owner</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel felis eget urna euismod blandit vel nec erat.</p>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="team-member">
+                <img src="images/bob.jpg" alt="Bob Rite">
+                <h4>Bob Rite</h4>
+                <h5>CFO and Co-owner</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel felis eget urna euismod blandit vel nec erat.</p>
+            </div>
+        </section>
+        <section id="contact">
+            <h3>Contact Us</h3>
+            <!-- Send us a message -->
+            <div class="send-message">
+                <h4>Send us a message</h4>
+                <form action="#" method="post">
+                    <!-- Full Name -->
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+        
+                    <!-- Email -->
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        
+                    <!-- Message -->
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+        
+                    <!-- Send Button -->
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        
+            <!-- Location -->
+            <div class="location">
+                <h4>Location</h4>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.6807473969145!2d-75.76045132480117!3d45.34745757909933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce050062396a6b%3A0x1b664e861eb9faeb!2s1385%20Woodroffe%20Ave%2C%20Ottawa%2C%20ON%20K2G%201V8%2C%20Canada!5e0!3m2!1sen!2sus!4v1698604131878!5m2!1sen!2sus" 
+                    width="600" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        
+            <!-- Hours of operation -->
+            <div class="hours">
+                <h4>Hours of operation</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Days</th>
+                            <th>Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monday-Friday</td>
+                            <td>9 AM - 6 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday-Sunday</td>
+                            <td>Closed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- First line: Copyright -->
+        <p>©️ Copyright Three Star Media. 2020</p>
+        <!-- Second line: Unsplash attribution -->
+        <p>
+            All images are taken from 
+            <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer">Unsplash</a>.
+        </p>
+    </footer>
+</body>
+</html>
