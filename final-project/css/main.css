@@ -47,5 +47,806 @@ table {
 	border-spacing: 0;
 }
 
-
 /* ----- My CSS ----- */
+
+/* 全局样式 */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0 var(--global-padding, 20px);;
+}
+
+/* 导航栏 */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #222; /* 黑色背景 */
+    padding: 30px 30px;
+}
+
+/* Logo */
+.logo img {
+    width: 50px; /* logo 尺寸 */
+    height: auto;
+}
+
+/* 导航链接 */
+.nav-links {
+    display: flex;
+    gap: 20px; /* PC 页面链接间距 */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #c78c06; /* 深黄色文字 */
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #c78c06; /* 悬停背景色 */
+    color: #222; /* 悬停文字色 */
+}
+
+/* 搜索栏整体样式 */
+.search-bar {
+    display: flex; /* 使用 flex 布局 */
+    align-items: center; /* 垂直居中对齐 */
+    gap: 10px; /* 输入框与按钮的间隔 */
+}
+
+/* 输入框样式 */
+.search-bar input {
+    flex: 1; /* 占据剩余空间 */
+    padding: 10px;
+    border: 1px solid #c78c06; /* 边框颜色 */
+    border-radius: 5px 0 0 5px; /* 左侧圆角 */
+}
+
+/* 按钮容器样式 */
+.search-button {
+    display: flex;
+    align-items: center;
+}
+
+/* 按钮样式 */
+.search-button button {
+    padding: 10px;
+    background-color: #222; /* 背景色 */
+    color: #c78c06; /* 文字颜色 */
+    border: 1px solid #c78c06; /* 边框颜色 */
+    border-radius: 0 5px 5px 0; /* 右侧圆角 */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button button i {
+    font-size: 16px; /* 图标大小 */
+}
+
+/* Welcome 部分 */
+.welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 内容区域整体居中 */
+    background-image: url('images/main-banner.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50vh;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* 半透明黑色背景 */
+.welcome::after {
+    content: '';
+    position: absolute;
+    top: 10%; /* 距顶部留出间距 */
+    left: 10%; /* 距左侧留出间距 */
+    right: 10%; /* 距右侧留出间距 */
+    bottom: 10%; /* 距底部留出间距 */
+    background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色背景 */
+    z-index: 1; /* 设置伪元素层级 */
+    display: block;
+}
+
+/* Welcome 内容文字和按钮 */
+.welcome h1,
+.welcome p,
+.welcome .button-container {
+    position: relative; /* 确保内容在伪元素上方 */
+    z-index: 2;
+    width: calc(100% - 40%); /* 限制内容宽度，确保在背景内 */
+    max-width: 900px; /* 设定内容最大宽度 */
+    margin: 0 auto; /* 自动居中内容 */
+    padding: 0; /* 清除默认内边距 */
+    box-sizing: border-box;
+    text-align: left; /* 左对齐文字 */
+}
+
+/* Welcome 标题样式 */
+.welcome h1 {
+    font-size: 2.5rem; /* 标题大小 */
+    font-weight: bold; /* 粗体 */
+    color: white; /* 白色文字 */
+    margin: 0 0 10px; /* 下边距 */
+    line-height: 1.5; /* 行间距设置为 */
+    text-align: left; /* 左对齐 */
+}
+
+/* Welcome 段落样式 */
+.welcome p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: white;
+    margin: 0 0 20px; /* 下边距 */
+}
+
+/* 按钮样式 */
+.welcome .button-container button {
+    background-color: #c78c06;
+    color: #222;
+    padding: 20px 30px; /* 调整按钮内边距 */
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    position: relative; /* 为伪元素定位准备 */
+    transition: background-color 0.3s;
+    display: inline-flex; /* 使内容和箭头对齐 */
+    align-items: center; /* 垂直居中内容和箭头 */
+    justify-content: space-between; /* 内容和箭头两端对齐 */
+}
+
+/* 按钮悬停效果 */
+.welcome .button-container button:hover {
+    background-color: #ffe6ac;
+}
+
+/* 黑色三角形箭头 */
+.welcome .button-container button::after {
+    content: ''; /* 添加伪元素 */
+    display: inline-block; /* 显示为内联块 */
+    margin-left: 10px; /* 与文字保持间距 */
+    width: 0; /* 设置宽度为 0 */
+    height: 0; /* 设置高度为 0 */
+    border-style: solid; /* 三角形箭头样式 */
+    border-width: 6px 0 6px 10px; /* 设置三角形大小 */
+    border-color: transparent transparent transparent #222; /* 设置箭头为黑色 */
+}
+
+/* 全局 h2 样式 */
+h2 {
+    font-size: 2rem; /* 标题大小 */
+    font-weight: bold; /* 加粗 */
+    margin-bottom: 20px; /* 标题与下方内容的间距 */
+    color: #222; /* 黑色字体 */
+    text-align: left; /* 默认居中对齐 */
+}
+
+/* About Us 区域 */
+.about-us {
+    background-color: #ffe6ac; /* 浅黄色背景 */
+    display: flex; /* 使用 Flexbox */
+    flex-direction: row; /* 默认 PC 页面左右排列 */
+    height: 25vh; /* 高度为 Welcome 的一半 */
+    padding: 0; /* 无额外内边距 */
+    box-sizing: border-box; /* 包括内边距在总宽度内 */
+}
+
+/* 图片区域 */
+.about-us .image-container {
+    flex: 1; /* 占据 50% 宽度 */
+    display: flex;
+    justify-content: flex-end; /* 图片靠右对齐 */
+    align-items: center; /* 垂直居中 */
+    padding: 10px; /* 图片内边距 */
+    box-sizing: border-box;
+}
+
+.about-us .image-container img {
+    width: 90%; /* 图片占区域的 90% 宽度 */
+    height: auto; /* 高度自适应 */
+    max-height: 100%; /* 确保图片不会超出区域高度 */
+    object-fit: cover; /* 确保图片比例 */
+}
+
+/* 文字区域 */
+.about-us .content-container {
+    flex: 1; /* 占据 50% 宽度 */
+    display: flex;
+    flex-direction: column; /* 垂直排列内容 */
+    justify-content: center; /* 内容垂直居中 */
+    align-items: flex-start; /* 内容靠左对齐 */
+    padding: 20px; /* 文字内边距 */
+    box-sizing: border-box;
+    text-align: left; /* 文本左对齐 */
+}
+
+.about-us .content-container h2 {
+    font-size: 2rem; /* 标题大小 */
+    font-weight: bold; /* 标题加粗 */
+    margin-bottom: 10px; /* 标题和段落之间的间距 */
+    color: #222; /* 标题颜色 */
+}
+
+.about-us .content-container p {
+    font-size: 1rem; /* 段落字体大小 */
+    line-height: 1.6; /* 行间距 */
+    color: #222; /* 段落颜色 */
+    margin: 0; /* 去掉外边距 */
+}
+
+/* Our Services 区域 */
+#services {
+    max-width: 1200px; /* 最大宽度 */
+    margin: 0 auto; /* 水平居中 */
+    padding: 40px 20px; /* 内边距 */
+    box-sizing: border-box;
+}
+
+/* 服务网格布局 */
+#services .services-grid {
+    display: flex;
+    flex-direction: column; /* 每一行独立处理 */
+    gap: 20px; /* 行间距 */
+}
+
+/* 第一行布局 */
+#services .first-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 两列，宽度均分 */
+    gap: 20px; /* 列间距 */
+}
+
+/* 第二行布局 */
+#services .second-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 三列，宽度均分 */
+    gap: 20px; /* 列间距 */
+}
+
+/* 单个服务项 */
+#services .service-item {
+    background-color: #ffe6ac; /* 浅黄色背景 */
+    border: 1px solid #222; /* 黑色边框 */
+    overflow: hidden; /* 确保内容不会溢出边框 */
+    display: flex; /* 使用 Flexbox 布局 */
+    flex-direction: column; /* 垂直排列内容 */
+    justify-content: space-between; /* 内容均匀分布 */
+    height: 100%; /* 确保高度一致 */
+}
+
+/* 服务图片 */
+#services .service-item img {
+    width: 100%; /* 图片宽度占满 */
+    height: auto; /* 高度自适应 */
+    object-fit: cover; /* 保持图片比例 */
+}
+
+/* 服务内容区域 */
+#services {
+    max-width: 1200px; /* 最大宽度 */
+    margin: 0 auto; /* 水平居中 */
+    padding: 40px 40px; /* 上下左右内边距，左右增加间距 */
+    box-sizing: border-box; /* 包括内边距在总宽度内 */
+}
+#services .service-item .content {
+    padding: 20px; /* 内边距 */
+    flex: 1;
+}
+
+#services .service-item h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+#services .service-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #222;
+    margin: 0;
+}
+
+/* 服务按钮容器 */
+#services .service-item .button-container {
+    text-align: center; /* 按钮在容器中水平居中 */
+    padding: 20px; /* 增加容器的上下左右内边距 */
+    box-sizing: border-box; /* 确保内边距不会影响按钮的实际宽度 */
+}
+
+/* 服务按钮样式 */
+#services .service-item .button-container button {
+    background-color: #222; /* 黑色背景 */
+    color: #ffe6ac; /* 按钮文字颜色 */
+    padding: 20px 0; /* 按钮高度 */
+    border: none; /* 无边框 */
+    font-size: 1rem; /* 按钮文字大小 */
+    cursor: pointer; /* 鼠标悬停显示手型 */
+    width: 100%; /* 占据容器的全部宽度 */
+    display: flex; /* 按钮内容使用 Flexbox 布局 */
+    align-items: center; /* 按钮文字和图标垂直居中 */
+    justify-content: center; /* 按钮文字水平居中 */
+    gap: 10px; /* 图标和文字间距 */
+    transition: background-color 0.3s ease; /* 悬停背景变换过渡 */
+}
+
+/* 按钮悬停效果 */
+#services .service-item .button-container button:hover {
+    background-color: #c78c06; /* 悬停背景为深黄色 */
+}
+
+/* 按钮图标 */
+#services .service-item .button-container button::after {
+    content: '▶';
+    font-size: 1rem;
+    color: #ffe6ac;
+}
+/* Our Vision Section */
+.vision-section {
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 左对齐 */
+    box-sizing: border-box;
+    height: 20vh; /* 高度占视口的一半 */
+}
+
+.vision-content {
+    max-width: 600px; /* 最大宽度限制 */
+    margin-left: 5%; /* 左侧间距 */
+    text-align: left;
+}
+
+.vision-content h3 {
+    font-size: 1.5rem; /* h3 大小 */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.vision-content p {
+    font-size: 0.8rem; /* 文本减小字体大小 */
+    line-height: 1.6; /* 行间距 */
+    margin-bottom: 20px;
+}
+
+.vision-content .button-container {
+    text-align: left;
+}
+
+.vision-content .button-container button {
+    background-color: #11253d; /* 深色背景 */
+    color: white; 
+	width: 150px; /* 按钮宽度 */
+    height: 60px; /* 按钮高度 */
+    padding: 10px 20px; /* 内边距 */
+    font-size: 1rem;
+    border: 2px solid #ffe6ac; /* 浅黄色边框 */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* 图标和文字的间距 */
+}
+
+.vision-content .button-container button:hover {
+    background-color: #ffe6ac; /* 悬停背景浅黄色 */
+    color: #222; /* 悬停文字颜色 */
+}
+
+.vision-content .button-container button::after {
+    content: '▶'; /* 按钮箭头 */
+    font-size: 1rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.vision-content .button-container button:hover::after {
+    color: #222; /* 悬停箭头颜色 */
+}
+/* Our Team Section - 调整照片和简介大小 */
+
+/* 调整 Our Team 区域宽度 */
+#team {
+    max-width: 1000px; /* 与 Our Services 区域宽度一致 */
+    margin: 0 auto; /* 区域水平居中 */
+    padding: 0 20px; /* 增加左右内边距 */
+    box-sizing: border-box; /* 确保内边距不影响实际宽度 */
+}
+.team-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 每行两列，等宽分布 */
+    height: auto; /* 确保高度自适应 */
+    align-items: center; /* 垂直居中对齐 */
+}
+
+.photo img {
+    width: 100%; /* 图片宽度占满格子 */
+    height: auto; /* 保持图片比例 */
+}
+
+.content {
+    width: 100%; /* 简介内容占满格子 */
+    padding: 20px; /* 增加内边距 */
+    box-sizing: border-box; /* 包括内边距在总宽度内 */
+}
+#team {
+    margin-top: 40px; /* Team 区域顶部间隔 */
+}
+/* Our Team 名字设置 */
+.team-item .content h3 {
+    font-size: 1.5rem; /* 设置名字大小 */
+    font-weight: bold; /* 加粗 */
+    margin-bottom: 5px; /* 名字和头衔的间距 */
+    color: #222; /* 深色字体 */
+}
+
+/* Our Team 头衔设置 */
+.team-item .content h4 {
+    font-size: 1rem; /* 设置头衔大小 */
+    font-weight: bold; /* 正常字体 */
+    color: #555; /* 浅灰色字体 */
+    margin-bottom: 10px; /* 头衔和分割线的间距 */
+}
+
+/* Our Team 随机文字设置 */
+.team-item .content p {
+    font-size: 0.9rem; /* 设置段落文字大小 */
+    line-height: 1.5; /* 行高 */
+    color: #333; /* 深灰色字体 */
+    margin: 0; /* 去除额外间距 */
+}
+/* 确保简介背景颜色铺满所在区域 */
+.team-item .content {
+    background-color: #ffe6ac; /* 浅黄色背景 */
+    padding: 20px; /* 内边距，确保文字与边框有间距 */
+    margin: 0; /* 去掉可能的外边距 */
+    box-sizing: border-box; /* 包括内边距在内容宽度内 */
+    height: 100%; /* 确保背景高度填满父容器 */
+    display: flex; /* 使用 flex 布局 */
+    flex-direction: column; /* 垂直排列内容 */
+    justify-content: space-between; /* 上下对齐 */
+}
+
+/* 分割线颜色 */
+.team-item .content hr {
+    border: none; /* 去除默认边框 */
+    border-top: 2px solid #c78c06; /* 深黄色分割线 */
+    margin: 10px 0; /* 上下间距 */
+    width: 100%; /* 分割线占满宽度 */
+}
+#contact {
+    margin-top: 40px; /* 设置上方间隔 */
+    padding-top: 20px; /* 如果需要内部间隔，也可以加上 */
+	max-width: 1000px; /* 与上方 Our Team 区域一致 */
+    margin-left: auto; /* 水平居中 */
+    margin-right: auto;
+}
+/* Contact Us 主标题 */
+#contact h3 {
+    font-size: 2rem; /* 主标题较大 */
+    font-weight: bold;
+    margin-bottom: 20px; /* 与下方内容的间距 */
+    text-align: left; /* 左对齐 */
+}
+
+/* 子标题：Send us a message, Location, Hours of operation */
+#contact h4 {
+    font-size: 1.5rem; /* 子标题较小 */
+    font-weight: bold;
+    margin-bottom: 15px; /* 子标题与内容的间距 */
+    text-align: left; /* 左对齐 */
+}
+/* 输入框整体样式 */
+#contact .send-message input,
+#contact .send-message textarea {
+    width: 100%; /* 输入框宽度占满 */
+    padding: 10px; /* 内边距 */
+    font-size: 1rem; /* 字体大小 */
+    border: 1px solid #ccc; /* 边框颜色 */
+    margin-bottom: 20px; /* 下方间距 */
+    box-sizing: border-box; /* 包括内边距 */
+}
+
+/* 输入框悬停和焦点状态 */
+#contact .send-message input:focus,
+#contact .send-message textarea:focus {
+    border-color: #c78c06; /* 焦点时的深黄色边框 */
+    outline: none; /* 去掉默认焦点外边框 */
+    box-shadow: 0 0 5px rgba(199, 140, 6, 0.5); /* 浅黄色阴影 */
+}
+
+/* 文本区域样式 */
+#contact .send-message textarea {
+    resize: none; /* 允许上下拖动大小 */
+    min-height: 100px; /* 设置最低高度 */
+}
+
+/* Send 按钮样式 */
+.send-message button {
+    background-color: #000; /* 黑色背景 */
+    color: #c78c06; /* 深黄色字体 */
+    padding: 10px 20px; /* 按钮内边距 */
+    font-size: 1rem; /* 字体大小 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 鼠标悬停显示手型 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 动画过渡效果 */
+}
+
+/* Send 按钮悬停效果 */
+.send-message button:hover {
+    background-color: #c78c06; /* 悬停背景改为深黄色 */
+    color: #000; /* 悬停字体改为黑色 */
+}
+/* 父容器样式 */
+.contact-row {
+    display: flex; /* 横向排列 */
+    gap: 20px; /* 中间间隙 */
+    max-width: 1000px; /* 总宽度与页面一致 */
+    margin: 0 auto; /* 居中 */
+    align-items: flex-start; /* 顶部对齐 */
+}
+
+/* 子区域均分宽度 */
+.send-message,
+.location {
+    flex: 1; /* 均分父容器宽度 */
+    box-sizing: border-box; /* 确保内边距不影响宽度 */
+}
+
+/* 地图调整 */
+.location iframe {
+    width: 100%; /* 充满父容器宽度 */
+    height: 300px; /* 固定高度 */
+    border: 0; /* 移除边框 */
+}
+/* Hours of Operation 区域 */
+.hours {
+    margin-top: 40px; /* 上方间距 */
+}
+
+.hours h4 {
+    font-size: 1.5rem; /* 标题字体大小 */
+    font-weight: bold; /* 加粗 */
+    margin-bottom: 20px; /* 标题与表格间距 */
+    color: #222; /* 黑色字体 */
+    text-align: left; /* 标题左对齐 */
+}
+
+.hours-table {
+    width: 100%; /* 表格宽度填满容器 */
+    border-collapse: collapse; /* 合并表格边框 */
+    text-align: center; /* 默认水平居中 */
+}
+
+.hours-table th,
+.hours-table td {
+    border: 1px solid #222; /* 黑色边框 */
+    text-align: center; /* 水平居中 */
+    vertical-align: middle; /* 垂直居中 */
+    padding: 10px; /* 单元格内边距 */
+    font-size: 1rem; /* 字体大小 */
+}
+
+/* 表头样式 */
+.hours-table tr:nth-child(1) th {
+    background-color: #ffe6ac; /* 浅黄色背景 */
+    color: #222; /* 黑色字体 */
+    font-weight: bold; /* 表头加粗 */
+}
+
+/* 数据行样式 */
+.hours-table tr:nth-child(2) td,
+.hours-table tr:nth-child(3) td {
+    background-color: #fff; /* 白色背景 */
+    color: #222; /* 黑色字体 */
+}
+footer {
+    background-color: #000; /* 黑色背景 */
+    color: #c78c06; /* 深黄色字体 */
+    text-align: left; /* 内容靠左对齐 */
+    padding: 20px; /* 上下左右内边距 */
+    margin-top: 40px; /* 与上方内容的间隔 */
+    font-size: 0.875rem; /* 字体大小缩小 */
+    width: 100%; /* 横向铺满页面 */
+    box-sizing: border-box; /* 包括内边距在宽度计算内 */
+}
+
+footer a {
+    color: #c78c06; /* 链接深黄色字体 */
+    text-decoration: none; /* 去掉下划线 */
+    font-size: 0.875rem; /* 与整体字体一致 */
+}
+
+footer a:hover {
+    text-decoration: underline; /* 悬停时显示下划线 */
+}
+@media (max-width: 760px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center; /* 导航栏内容居中 */
+        width: 100%;
+    }
+
+    /* Logo部分 */
+    .logo {
+        width: 100%; /* 背景横向铺满 */
+        background-color: #c78c06; /* 深黄色背景 */
+        padding: 20px; /* 增加上下内边距 */
+        box-sizing: border-box; /* 确保内边距不影响宽度 */
+        text-align: left; /* logo 左对齐 */
+    }
+
+    .logo img {
+        width: 100px; /* logo 尺寸 */
+        height: auto;
+    }
+
+    /* 导航链接 */
+    .nav-links {
+        display: flex;
+        flex-direction: column; /* 导航项垂直排列 */
+        align-items: center; /* 导航项居中对齐 */
+        width: 100%; /* 链接容器宽度占满屏幕 */
+    }
+
+    .nav-links a {
+        display: block; /* 设置链接为块级元素 */
+        text-align: center; /* 文字居中对齐 */
+        background-color: transparent; /* 默认无背景色 */
+        color: #c78c06; /* 深黄色文字 */
+        padding: 20px 0; /* 调整导航项的高度 */
+        box-sizing: border-box; /* 确保内边距不影响宽度 */
+        width: 100%; /* 链接宽度占满屏幕 */
+        transition: background-color 0.3s, color 0.3s; /* 悬停效果的过渡 */
+    }
+
+    /* 悬停效果 */
+    .nav-links a:hover {
+        background-color: #c78c06; /* 悬停背景变为深黄色 */
+        color: #222; /* 悬停文字变为黑色 */
+        position: relative; /* 相对定位确保背景扩展正常 */
+    }
+
+    /* 让 Home 的背景与 Logo 区域无缝连接 */
+    .nav-links a:first-child {
+        background-color: transparent; /* 默认无背景色 */
+        color: #c78c06; /* 深黄色文字 */
+    }
+
+    .nav-links a:first-child:hover {
+        background-color: #c78c06; /* 悬停时深黄色 */
+        color: #222; /* 文字颜色保持黑色 */
+    }
+
+    /* 搜索栏 */
+    .search-bar {
+        width: 100%; /* 搜索栏占满宽度 */
+        margin-top: 20px;
+    }
+
+    .search-bar input {
+        width: calc(100% - 50px); /* 输入框宽度，留出按钮空间 */
+        margin: 0;
+    }
+
+    .search-bar button {
+        width: 40px; /* 按钮宽度保持不变 */
+    }
+	.about-us {
+        flex-direction: column; /* 改为上下排列 */
+        height: auto; /* 高度自适应内容 */
+    }
+
+    .about-us .image-container {
+        padding: 20px; /* 图片容器周围增加边距 */
+    }
+
+    .about-us .image-container img {
+        width: 100%; /* 图片宽度自适应 */
+        max-height: 50vh; /* 限制图片高度为视口的一半 */
+    }
+
+    .about-us .content-container {
+        align-items: flex-start; /* 内容靠左对齐 */
+        text-align: left; /* 文本左对齐 */
+        padding: 20px; /* 调整内边距 */
+    }
+
+    .about-us .content-container h2 {
+        font-size: 1.8rem; /* 标题稍微缩小 */
+        margin-bottom: 10px; /* 调整标题和段落间距 */
+    }
+
+    .about-us .content-container p {
+        font-size: 1rem; /* 段落字体大小保持不变 */
+    }
+
+	#services .services-grid {
+        gap: 20px; /* 行间距保持 */
+    }
+
+    #services .first-row,
+    #services .second-row {
+        display: grid;
+        grid-template-columns: 1fr; /* 每行一列 */
+    }
+	.team-container {
+        display: flex;
+        flex-direction: column; /* 垂直排列 */
+        gap: 0; /* 无缝连接 */
+    }
+
+    .team-item {
+        display: flex;
+        flex-direction: column; /* 照片在简介上方 */
+        align-items: stretch; /* 宽度充满 */
+        text-align: left; /* 简介文本左对齐 */
+    }
+
+    /* 重新调整顺序仅对 Bob 应用 */
+    .photo-right {
+        flex-direction: column-reverse; /* 简介在照片下方 */
+    }
+
+    .team-item .photo img {
+        width: 100%; /* 照片宽度适应容器 */
+        height: auto; /* 高度自适应 */
+    }
+
+    .team-item .content {
+        padding: 20px; /* 简介内边距 */
+        background-color: #ffe6ac; /* 浅黄色背景 */
+    }
+
+    .team-item .content hr {
+        border-top: 2px solid #c78c06; /* 深黄色分割线 */
+        margin: 10px 0; /* 分割线上下间距 */
+    }
+
+    .team-item + .team-item {
+        margin-top: 20px; /* 两个团队成员之间的间隔 */
+    }
+	#contact {
+        display: flex;
+        flex-direction: column; /* 垂直排列 */
+        gap: 20px; /* 模块间的间隙 */
+    }
+	.location {
+        width: 100%; /* 确保占满宽度 */
+        max-width: none; /* 移除可能的最大宽度限制 */
+        margin: 0; /* 清除多余外边距 */
+    }
+
+    .send-message {
+        order: 1; /* 第一模块 */
+    }
+
+    .hours {
+        order: 2; /* 第二模块 */
+    }
+
+    .location {
+        order: 3; /* 第三模块 */
+    }
+    
+    .contact-row {
+        flex-direction: column; /* 确保手机页面时改为竖直排列 */
+    }
+
+}
